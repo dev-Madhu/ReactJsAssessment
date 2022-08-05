@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import {
   Item,
   IconContainer,
@@ -9,20 +11,24 @@ import {
   Description,
 } from './StyledComponents'
 
+import './index.css'
+
 const ResourceCard = props => {
   const {cardDetails} = props
-  const {title, link, iconUrl, description, category} = cardDetails
+  const {id, title, link, iconUrl, description, category} = cardDetails
   return (
     <Item>
-      <IconContainer>
-        <Icon src={iconUrl} alt="icon" />
-        <TitleBox>
-          <Title>{title}</Title>
-          <Category>{category}</Category>
-        </TitleBox>
-      </IconContainer>
-      <LinkElement>{link}</LinkElement>
-      <Description>{description}</Description>
+      <Link to={`/resource/${id}`} className="item-link">
+        <IconContainer>
+          <Icon src={iconUrl} alt="icon" />
+          <TitleBox>
+            <Title>{title}</Title>
+            <Category>{category}</Category>
+          </TitleBox>
+        </IconContainer>
+        <LinkElement>{link}</LinkElement>
+        <Description>{description}</Description>
+      </Link>
     </Item>
   )
 }

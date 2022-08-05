@@ -4,11 +4,13 @@ dependencies:
   '@testing-library/react': 11.2.5_react-dom@17.0.1+react@17.0.1
   '@testing-library/user-event': 12.6.2
   chalk: 4.1.0
+  classnames: 2.3.1
   history: 5.0.1
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.4.0_react@17.0.1
   react-router-dom: 5.3.0_react@17.0.1
+  react-table: 7.8.0_react@17.0.1
   styled-components: 5.3.0_react-dom@17.0.1+react@17.0.1
 devDependencies:
   babel-plugin-styled-components: 1.13.2_styled-components@5.3.0
@@ -4877,6 +4879,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
+  /classnames/2.3.1:
+    dev: false
+    resolution:
+      integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
   /clean-css/4.2.4:
     dependencies:
       source-map: 0.6.1
@@ -11582,6 +11588,14 @@ packages:
         optional: true
     resolution:
       integrity: sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A==
+  /react-table/7.8.0_react@17.0.1:
+    dependencies:
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+    resolution:
+      integrity: sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==
   /react/17.0.1:
     dependencies:
       loose-envify: 1.4.0
@@ -14166,6 +14180,7 @@ specifiers:
   '@testing-library/user-event': 12.6.2
   babel-plugin-styled-components: 1.13.2
   chalk: 4.1.0
+  classnames: 2.3.1
   eslint-config-airbnb: 18.2.1
   eslint-config-prettier: 8.1.0
   eslint-plugin-prettier: 3.3.1
@@ -14179,4 +14194,5 @@ specifiers:
   react-icons: 4.4.0
   react-router-dom: 5.3.0
   react-scripts: 4.0.3
+  react-table: 7.8.0
   styled-components: 5.3.0

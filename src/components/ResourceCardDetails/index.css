@@ -1,0 +1,11 @@
+.less-than {
+  color: #171f46;
+  transform: rotate(90deg);
+  font-size: 33px;
+}
+
+.sort-by-icon {
+  font-size: 30px;
+  color: #171f46;
+  margin-right: 6px;
+}
