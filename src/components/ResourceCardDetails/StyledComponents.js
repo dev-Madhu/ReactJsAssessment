@@ -4,12 +4,20 @@ export const ItemBox = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
+  padding-left: 70px;
 `
 
 export const IconContainer = styled.div`
   display: flex;
+  width: 600px;
   align-items: center;
   margin-bottom: 0px;
+  align-self: flex-start;
+`
+
+export const IconContainer1 = styled(IconContainer)`
+  padding-left: 70px;
 `
 
 export const Icon = styled.img`
@@ -54,6 +62,7 @@ export const Navigator = styled.p`
 export const ResourceContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-left: 50px;
 `
 export const UpdateBtn = styled.button`
@@ -84,11 +93,13 @@ export const BtnBox = styled.div`
   margin-top: 20px;
   display: flex;
   align-items: center;
+  align-self: flex-start;
+  padding-left: 70px;
 `
 export const Items = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
 `
 
 export const SideHeading = styled.p`
@@ -103,7 +114,7 @@ export const SortByContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 600px;
+  align-self: flex-end;
 `
 
 export const SortBy = styled.p`
@@ -113,27 +124,6 @@ export const SortBy = styled.p`
   text-transform: uppercase;
   color: #171f46;
   font-family: 'Roboto';
-`
-
-export const Select = styled.select`
-  color: #475569;
-  background-color: #ffffff;
-  font-family: 'Roboto';
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  padding: 12px;
-  outline: none;
-  cursor: pointer;
-`
-
-export const Option = styled.option`
-  color: #7e858e;
-  font-family: 'Roboto';
-  font-size: 14px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
 `
 
 export const SearchBox = styled.div`

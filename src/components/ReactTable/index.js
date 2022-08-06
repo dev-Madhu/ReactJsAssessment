@@ -1,10 +1,11 @@
 import {useMemo, useState} from 'react'
 import {useTable} from 'react-table'
-import COLUMNS from './Columns'
+import COLUMNS from './columns'
 import Pagination from '../Pagination'
 import './table.css'
 
-const PageSize = 6
+const PageSize = 7
+
 const ReactTable = props => {
   const {resourceData} = props
   const [currentPage, setCurrentPage] = useState(1)
@@ -14,22 +15,20 @@ const ReactTable = props => {
     const lastPageIndex = firstPageIndex + PageSize
     return resourceData.slice(firstPageIndex, lastPageIndex)
   }, [currentPage, resourceData])
-
   const columns = useMemo(() => COLUMNS, [])
 
   const data = useMemo(() => currentTableData, [currentTableData])
-  const table = useTable({
-    columns,
-    data,
-  })
-
   const {
     getTableBodyProps,
     getTableProps,
     headerGroups,
     rows,
     prepareRow,
-  } = table
+  } = useTable({
+    columns,
+    data,
+  })
+
   return (
     <>
       <table {...getTableProps()}>
@@ -58,6 +57,7 @@ const ReactTable = props => {
           })}
         </tbody>
       </table>
+
       <Pagination
         className="pagination-bar"
         currentPage={currentPage}

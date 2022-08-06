@@ -58,7 +58,9 @@ class Home extends Component {
 
   render() {
     const {activeTabId, searchInput, resourcesList} = this.state
-    console.log(activeTabId)
+    const SearchedResults = resourcesList.filter(each =>
+      each.title.toLowerCase().includes(searchInput.toLowerCase()),
+    )
 
     return (
       <>
@@ -84,7 +86,7 @@ class Home extends Component {
             />
           </SearchBox>
           <ResourcesData>
-            {resourcesList.map(eachData => (
+            {SearchedResults.map(eachData => (
               <ResourceCard cardDetails={eachData} key={eachData.id} />
             ))}
           </ResourcesData>

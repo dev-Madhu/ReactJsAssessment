@@ -3,6 +3,8 @@ import Home from './components/Home'
 import ResourceCardDetails from './components/ResourceCardDetails'
 import Login from './components/Login/Login'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Users from './components/Users'
+import NotFound from './components/NotFound'
 
 import './App.css'
 
@@ -13,11 +15,14 @@ const App = () => (
   <Switch>
     <Route exact path="/login" component={Login} />
     <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/resources" component={Home} />
+    <ProtectedRoute exact path="/users" component={Users} />
     <ProtectedRoute
       exact
       path="/resource/:id"
       component={ResourceCardDetails}
     />
+    <Route component={NotFound} />
   </Switch>
 )
 

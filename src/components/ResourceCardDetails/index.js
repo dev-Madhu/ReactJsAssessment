@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import {MdExpandLess} from 'react-icons/md'
 import {BsFilterRight, BsSearch} from 'react-icons/bs'
@@ -8,6 +9,7 @@ import {
   ItemBox,
   Navigator,
   ResourceContainer,
+  IconContainer1,
   IconContainer,
   Icon,
   TitleBox,
@@ -19,28 +21,14 @@ import {
   Title,
   LinkElement,
   SortByContainer,
-  Select,
   SortBy,
   SideHeading,
   SearchBox,
   SearchInput,
-  Option,
   Description,
 } from './StyledComponents'
 
 import './index.css'
-
-const sortByOptions = [
-  {optionId: 'RECENT', displayText: 'Recently Added'},
-  {
-    optionId: 'ASC',
-    displayText: 'Ascending',
-  },
-  {
-    optionId: 'DESC',
-    displayText: 'Descending',
-  },
-]
 
 class ResourceCardDetails extends Component {
   state = {resourceItems: [], specificResource: {}}
@@ -90,10 +78,10 @@ class ResourceCardDetails extends Component {
       <>
         <Header />
         <ResourceContainer>
-          <IconContainer onClick={this.onClickBack}>
+          <IconContainer1 onClick={this.onClickBack}>
             <MdExpandLess className="less-than" />
             <Navigator>Resources</Navigator>
-          </IconContainer>
+          </IconContainer1>
           <ItemBox>
             <IconContainer>
               <Icon src={iconUrl} alt="icon" />
@@ -115,23 +103,14 @@ class ResourceCardDetails extends Component {
               <SortByContainer>
                 <BsFilterRight className="sort-by-icon" />
                 <SortBy>Sort</SortBy>
-                <Select>
-                  {sortByOptions.map(eachOption => (
-                    <Option
-                      key={eachOption.optionId}
-                      value={eachOption.optionId}
-                      className="select-option"
-                    >
-                      {eachOption.displayText}
-                    </Option>
-                  ))}
-                </Select>
               </SortByContainer>
             </IconContainer>
           </Items>
           <ReactTable resourceData={resourceItems} />
           <BtnBox>
-            <AddBtn>ADD ITEM</AddBtn>
+            <Link to="/users">
+              <AddBtn>ADD ITEM</AddBtn>
+            </Link>
             <DeleteBtn>DELETE</DeleteBtn>
           </BtnBox>
         </ResourceContainer>

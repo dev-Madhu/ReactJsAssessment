@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {ListItem, TabButton} from './StyledComponents'
 
 const TabItems = props => {
@@ -7,11 +8,14 @@ const TabItems = props => {
     clickTabItem(tabId)
   }
 
+  const resourceLink = displayText.toLowerCase()
   return (
     <ListItem>
-      <TabButton type="button" active={isActive} onClick={onClickTabItem}>
-        {displayText}
-      </TabButton>
+      <Link to={`/${resourceLink}`}>
+        <TabButton type="button" active={isActive} onClick={onClickTabItem}>
+          {displayText}
+        </TabButton>
+      </Link>
     </ListItem>
   )
 }

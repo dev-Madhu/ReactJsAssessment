@@ -5,15 +5,14 @@ const COLUMNS = [
       {
         id: 'checkbox',
         accessor: '',
-        Cell: ({original}) => (
+        Cell: () => (
           <input
             type="checkbox"
             className="checkbox"
             // checked={this.state.selected[original.firstName] === true}
-            // onChange={() => this.toggleRow(original.firstName)}
           />
         ),
-        Header: x => (
+        Header: () => (
           <input
             type="checkbox"
             className="checkbox"
@@ -26,21 +25,22 @@ const COLUMNS = [
             // onChange={() => this.toggleSelectAll()}
           />
         ),
-        sortable: false,
+        sortable: true,
         width: 70,
       },
     ],
   },
+
   {
-    Header: 'Title',
+    Header: 'TITLE',
     accessor: 'title',
   },
   {
-    Header: 'Description',
+    Header: 'DESCRIPTION',
     accessor: 'description',
   },
   {
-    Header: 'Link',
+    Header: 'LINK',
     accessor: 'link',
   },
 ]
