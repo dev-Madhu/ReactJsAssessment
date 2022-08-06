@@ -1,6 +1,8 @@
 import {Switch, Route} from 'react-router-dom'
 import Home from './components/Home'
 import ResourceCardDetails from './components/ResourceCardDetails'
+import Login from './components/Login/Login'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 import './App.css'
 
@@ -9,8 +11,13 @@ import './App.css'
 // Replace your code here
 const App = () => (
   <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/resource/:id" component={ResourceCardDetails} />
+    <Route exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute
+      exact
+      path="/resource/:id"
+      component={ResourceCardDetails}
+    />
   </Switch>
 )
 

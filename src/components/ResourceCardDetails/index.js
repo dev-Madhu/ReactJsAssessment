@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
 import {MdExpandLess} from 'react-icons/md'
 import {BsFilterRight, BsSearch} from 'react-icons/bs'
 import Header from '../Header'
@@ -52,24 +53,27 @@ class ResourceCardDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
-    const apiUrl = `https://media-content.ccbp.in/website/react-assignment/resource/${id}.json`
-    const options = {
-      method: 'GET',
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      const apiUrl = `https://media-content.ccbp.in/website/react-assignment/resource/${id}.json`
+      const options = {
+        method: 'GET',
+      }
+      const response = await fetch(apiUrl, options)
+      const data = await response.json()
+      const updatedData = {
+        id: data.id,
+        title: data.title,
+        iconUrl: data.icon_url,
+        link: data.link,
+        description: data.description,
+      }
+      const resourceItemData = data.resource_items
+      this.setState({
+        specificResource: updatedData,
+        resourceItems: resourceItemData,
+      })
     }
-    const response = await fetch(apiUrl, options)
-    const data = await response.json()
-    const updatedData = {
-      id: data.id,
-      title: data.title,
-      iconUrl: data.icon_url,
-      link: data.link,
-      description: data.description,
-    }
-    const resourceItemData = data.resource_items
-    this.setState({
-      specificResource: updatedData,
-      resourceItems: resourceItemData,
-    })
   }
 
   onClickBack = () => {

@@ -21,6 +21,8 @@ export const WebsiteLogo = styled.img`
 export const Profile = styled.img`
   object-fit: cover;
   border-radius: 20px;
+  border: none;
+  cursor: pointer;
 `
 
 export const Button = styled.button`

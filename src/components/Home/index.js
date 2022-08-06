@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
 import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
 import TabItems from '../TabItems'
@@ -26,22 +27,25 @@ class Home extends Component {
   }
 
   getResourcesDetails = async () => {
-    const apiUrl = `https://media-content.ccbp.in/website/react-assignment/resources.json`
-    const options = {
-      method: 'GET',
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      const apiUrl = `https://media-content.ccbp.in/website/react-assignment/resources.json`
+      const options = {
+        method: 'GET',
+      }
+      const response = await fetch(apiUrl, options)
+      const fetchedData = await response.json()
+      const updatedData = fetchedData.map(data => ({
+        id: data.id,
+        title: data.title,
+        iconUrl: data.icon_url,
+        link: data.link,
+        description: data.description,
+        category: data.category,
+        tag: data.tag,
+      }))
+      this.setState({resourcesList: updatedData})
     }
-    const response = await fetch(apiUrl, options)
-    const fetchedData = await response.json()
-    const updatedData = fetchedData.map(data => ({
-      id: data.id,
-      title: data.title,
-      iconUrl: data.icon_url,
-      link: data.link,
-      description: data.description,
-      category: data.category,
-      tag: data.tag,
-    }))
-    this.setState({resourcesList: updatedData})
   }
 
   clickTabItem = optionId => {
